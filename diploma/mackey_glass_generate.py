@@ -35,6 +35,9 @@ if __name__ == "__main__":
     window = 30
     X, y = make_windowed_dataset(series, window)
 
+    # Индексы времени для каждого окна (t соответствует первому элементу окна)
+    t_idx = np.arange(len(X))
+
     # Визуализация временного ряда
     plt.figure(figsize=(12, 4))
     plt.plot(series, label="Mackey-Glass series")
@@ -45,8 +48,12 @@ if __name__ == "__main__":
     plt.tight_layout()
     plt.show()
 
-    df = pd.DataFrame(np.hstack([X, y.reshape(-1, 1)]))
-    columns = [f"x{i+1}" for i in range(window)] + ["y"]
-    df.columns = columns
+    # Сохраняем исходный временной ряд
+    pd.DataFrame({"t": np.arange(len(series)), "x": series}).to_csv("mackey_glass_series.csv", index=False)
+
+    # Формируем DataFrame с временными окнами
+    df = pd.DataFrame(X, columns=[f"x_t-{window-i-1}" for i in range(window)])
+    df.insert(0, "t", t_idx)
+    df["target"] = y
     df.to_csv("mackey_glass_dataset.csv", index=False)
-    print("mackey_glass_dataset.csv успешно создан!")
+    print("mackey_glass_dataset.csv и mackey_glass_series.csv успешно созданы!")

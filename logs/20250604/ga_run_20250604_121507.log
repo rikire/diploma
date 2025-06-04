@@ -1,0 +1,58 @@
+2025-06-04 12:15:07,526 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 12:15:07,526 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_121507.log
+2025-06-04 12:15:09,143 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-04 12:15:09,144 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 12:15:09,146 - __main__ - INFO - Mixed precision enabled
+2025-06-04 12:15:09,147 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/mackey_glass_dataset.csv
+2025-06-04 12:15:09,353 - __main__ - INFO - Dataset shapes:
+2025-06-04 12:15:09,354 - __main__ - INFO - Training: X=(12780, 30), y=(12780,)
+2025-06-04 12:15:09,355 - __main__ - INFO - Validation: X=(3196, 30), y=(3196,)
+2025-06-04 12:15:09,355 - __main__ - INFO - Test: X=(3994, 30), y=(3994,)
+2025-06-04 12:15:09,359 - initializer - INFO - Генерируется случайная архитектура из 3 блоков
+2025-06-04 12:15:09,360 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 12:15:09,360 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 12:15:09,360 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 12:15:09,361 - initializer - INFO - Генерируется случайная архитектура из 5 блоков
+2025-06-04 12:15:09,361 - nas_genetic_alg - INFO - GA started: pop=5, gens=1
+2025-06-04 12:15:09,361 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 12:15:09,361 - evaluator - INFO - Запускаем параллельную оценку: 5 архитектур, 4 процессов
+2025-06-04 12:15:15,097 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: {'parallel': {'branch_1_rnn': [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}], 'branch_2_rnn': [{'layer': 'LSTM', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}]}}
+2025-06-04 12:15:15,097 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 1, 'padding': 'same', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.2, 'pooling': None}, {'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'LSTM', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 12:15:15,097 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 12:15:15,097 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 12:15:15,098 - builder - INFO - Построение последовательной архитектуры из 3 слоёв
+2025-06-04 12:15:15,099 - builder - INFO - Построение параллельной архитектуры с 2 ветвями
+2025-06-04 12:15:15,099 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-04 12:15:15,123 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'RNN', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 12:15:15,123 - evaluator - INFO - [Worker 3] Начинаем билд и обучение для архитектуры: {'parallel': {'branch_1_rnn': [{'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}], 'branch_2_conv': [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 5, 'strides': 1, 'padding': 'valid', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.0, 'pooling': 'max3'}, {'layer': 'Conv1D', 'filters': 256, 'kernel_size': 7, 'strides': 1, 'padding': 'valid', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.0, 'pooling': 'max3'}, {'layer': 'GlobalAvgPool1D'}]}}
+2025-06-04 12:15:15,123 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 12:15:15,123 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 12:15:15,125 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 12:15:15,125 - builder - INFO - Построение параллельной архитектуры с 2 ветвями
+2025-06-04 12:15:15,126 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-04 12:15:17,940 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-04 12:15:17,952 - builder - INFO - Построение последовательной архитектуры из 3 слоёв
+2025-06-04 12:15:17,953 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 12:15:17,968 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 23,392
+2025-06-04 12:15:17,970 - builder - INFO - Модель успешно построена. Параметры: 23,392
+2025-06-04 12:15:17,977 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 52,161
+2025-06-04 12:15:17,978 - builder - INFO - Модель успешно построена. Параметры: 52,161
+2025-06-04 12:15:18,015 - builder - WARNING - Пропускаем MaxPool3 в seq_1_Conv1D_4, seq_len=2 < 3
+2025-06-04 12:15:18,018 - builder - INFO - Выполняется _smart_merge_branches
+2025-06-04 12:15:18,020 - builder - INFO - Выполняется _smart_merge_branches
+2025-06-04 12:15:18,040 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 12:15:18,042 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 12:15:18,058 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 637,345
+2025-06-04 12:15:18,059 - builder - INFO - Модель успешно построена. Параметры: 637,345
+2025-06-04 12:15:18,063 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 117,761
+2025-06-04 12:15:18,063 - builder - INFO - Модель успешно построена. Параметры: 117,761
+2025-06-04 12:16:57,957 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=0.0019, model_size=23392, train_time=99.95s
+2025-06-04 12:16:58,452 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 2, 'padding': 'valid', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.2, 'pooling': None}, {'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}, {'layer': 'Conv1D', 'filters': 128, 'kernel_size': 3, 'strides': 2, 'padding': 'valid', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'Conv1D', 'filters': 512, 'kernel_size': 5, 'strides': 2, 'padding': 'valid', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.2, 'pooling': None}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 12:16:58,452 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 12:16:58,455 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 12:16:58,604 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 385,601
+2025-06-04 12:16:58,606 - builder - INFO - Модель успешно построена. Параметры: 385,601
+2025-06-04 12:17:26,702 - evaluator - INFO - [Worker 3] Оценка завершена: val_loss=0.0028, model_size=637345, train_time=128.62s
+2025-06-04 12:17:41,413 - evaluator - INFO - [Worker 4] Оценка завершена: val_loss=0.0019, model_size=385601, train_time=42.79s
+2025-06-04 12:18:14,709 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=0.0016, model_size=117761, train_time=176.63s

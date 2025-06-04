@@ -457,7 +457,7 @@ def main():
     
     # Инициализация и запуск генетического алгоритма
     ga = NasGeneticAlg(config)
-    best_architecture = ga.run(
+    best_architecture, best_metrics = ga.run(
         train_data=(X_train, y_train),
         val_data=(X_val, y_val)
     )
@@ -465,7 +465,15 @@ def main():
     # Построение лучшей модели
     logger.info("Building best model with found architecture")
     builder = SmartModelBuilder()
-    best_model = builder.build_model_from_architecture(best_architecture, input_shape=(X_train.shape[1],))
+    best_model = builder.build_model_from_architecture(
+        best_architecture,
+        input_shape=(X_train.shape[1],)
+    )
+    
+    # Компиляция модели
+    logger.info("Compiling model")
+    compile_params = config['compile_params']
+    best_model.compile(**compile_params)
     
     # Вывод summary лучшей модели
     best_model.summary()
@@ -481,10 +489,44 @@ def main():
     
     # Обучение финальной модели
     logger.info("Training final model")
+    
+    # Подготовка параметров обучения
+    training_params = config.get('training_params', {}).copy()
+    
+    # Создание колбэков из конфигурации
+    callbacks = []
+    if 'callbacks' in training_params:
+        callback_configs = training_params.pop('callbacks')
+        
+        # Early Stopping
+        if 'early_stopping' in callback_configs:
+            es_config = callback_configs['early_stopping']
+            callbacks.append(EarlyStopping(**es_config))
+        
+        # ReduceLROnPlateau
+        if 'reduce_lr' in callback_configs:
+            lr_config = callback_configs['reduce_lr']
+            callbacks.append(tf.keras.callbacks.ReduceLROnPlateau(**lr_config))
+        
+        # ModelCheckpoint если требуется
+        if args.save_checkpoints:
+            checkpoint_path = os.path.join(model_dir, 'checkpoints', 'model_{epoch:02d}.h5')
+            os.makedirs(os.path.dirname(checkpoint_path), exist_ok=True)
+            callbacks.append(ModelCheckpoint(
+                checkpoint_path,
+                save_best_only=True,
+                monitor='val_loss'
+            ))
+    
+    # Добавляем колбэки в параметры обучения
+    if callbacks:
+        training_params['callbacks'] = callbacks
+    
+    # Запуск обучения
     history = best_model.fit(
         X_train, y_train,
         validation_data=(X_val, y_val),
-        **config.get('training_params', {})
+        **training_params
     )
     
     # Сохранение модели

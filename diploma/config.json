@@ -1,12 +1,12 @@
 {
     "ga_config": {
-        "population_size": 10,
-        "selection_size": 5,
-        "n_generations": 5,
+        "population_size": 5,
+        "selection_size": 2,
+        "n_generations": 1,
         "mutation_rate": 0.2,
         "crossover_rate": 0.8,
         "tournament_size": 3,
-        "elite_size": 2
+        "elite_size": 1
     },
     
     "architecture_config": {
@@ -22,7 +22,7 @@
     },
     
     "training_params": {
-        "epochs": 20,
+        "epochs": 10,
         "batch_size": 32,
         "validation_split": 0.2,
         "callbacks": {
@@ -40,6 +40,12 @@
         }
     },
     
+    "compile_params": {
+        "optimizer": "adam",
+        "loss": "mse",
+        "metrics": ["mae", "mse"]
+    },
+
     "optimizer_config": {
         "n_trials": 30,
         "timeout": 7200,

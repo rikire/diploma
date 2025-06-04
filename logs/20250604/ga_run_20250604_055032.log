@@ -1,0 +1,75 @@
+2025-06-04 05:50:32,678 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 05:50:32,678 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_055032.log
+2025-06-04 05:50:34,595 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-04 05:50:34,596 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 05:50:34,596 - __main__ - INFO - Mixed precision enabled
+2025-06-04 05:50:34,596 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/mackey_glass_dataset.csv
+2025-06-04 05:50:34,777 - __main__ - INFO - Dataset shapes:
+2025-06-04 05:50:34,777 - __main__ - INFO - Training: X=(12780, 30), y=(12780,)
+2025-06-04 05:50:34,778 - __main__ - INFO - Validation: X=(3196, 30), y=(3196,)
+2025-06-04 05:50:34,778 - __main__ - INFO - Test: X=(3994, 30), y=(3994,)
+2025-06-04 05:50:34,785 - initializer - INFO - Генерируется RNN архитектура: 1 GRU слоев
+2025-06-04 05:50:34,785 - initializer - INFO - Генерируется Conv-Dense архитектура: 2 conv слоев
+2025-06-04 05:50:34,786 - initializer - INFO - Генерируется случайная архитектура из 3 блоков
+2025-06-04 05:50:34,786 - initializer - INFO - Генерируется Conv-Dense архитектура: 3 conv слоев
+2025-06-04 05:50:34,787 - initializer - INFO - Генерируется Conv-Dense архитектура: 1 conv слоев
+2025-06-04 05:50:34,787 - nas_genetic_alg - INFO - GA started: pop=5, gens=1
+2025-06-04 05:50:34,787 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 05:50:34,788 - evaluator - INFO - Запускаем параллельную оценку: 5 архитектур, 4 процессов
+2025-06-04 05:51:33,900 - evaluator - INFO - Оценка завершена. Фитнесы: [1.3293187432026945, 1.3627858331817575, 1.2816223666111706, 1.4947767259191465, 0.9591440543514775]
+2025-06-04 05:51:33,901 - nas_genetic_alg - INFO - Ind 0: fit=1.3293, val_loss=0.0027, arch=[{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:33,901 - nas_genetic_alg - INFO - Ind 1: fit=1.3628, val_loss=0.0023, arch=[{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.2, 'pooling': 'max2'}, {'layer': 'Conv1D', 'filters': 256, 'kernel_size': 5, 'strides': 1, 'padding': 'valid', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:33,901 - nas_genetic_alg - INFO - Ind 2: fit=1.2816, val_loss=0.0022, arch=[{'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.2, 'pooling': 'max2'}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}]
+2025-06-04 05:51:33,902 - nas_genetic_alg - INFO - Ind 3: fit=1.4948, val_loss=0.0013, arch=[{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.0, 'pooling': None}, {'layer': 'Conv1D', 'filters': 128, 'kernel_size': 9, 'strides': 2, 'padding': 'same', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 2, 'padding': 'valid', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 128, 'activation': 'tanh', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 05:51:33,902 - nas_genetic_alg - INFO - Ind 4: fit=0.9591, val_loss=0.0069, arch=[{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:33,902 - nas_genetic_alg - INFO - Best fitness: 0.9591
+2025-06-04 05:51:33,902 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 05:51:33,903 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 05:51:33,904 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-04 05:51:33,904 - crossover - INFO - Скрещивание завершено успешно
+2025-06-04 05:51:33,904 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 05:52:03,297 - evaluator - INFO - Оценка завершена. Фитнесы: [0.9513992230351235, 0.951786834982727, 0.9526498835821414]
+2025-06-04 05:52:03,298 - nas_genetic_alg - INFO - 
+GA done. Best fitness: 0.9514
+2025-06-04 05:52:03,298 - __main__ - INFO - Building best model with found architecture
+2025-06-04 05:52:03,299 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:52:03,299 - root - ERROR - An error occurred: Неподдерживаемый тип архитектуры: <class 'tuple'>
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/main.py", line 560, in <module>
+    main()
+  File "/mnt/c/study/paper/diploma/diploma/main.py", line 468, in main
+    best_model = builder.build_model_from_architecture(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/study/paper/diploma/diploma/builder.py", line 73, in build_model_from_architecture
+    self._validate_architecture_structure(arch)
+  File "/mnt/c/study/paper/diploma/diploma/builder.py", line 132, in _validate_architecture_structure
+    raise ArchitectureBuilderError(f"Неподдерживаемый тип архитектуры: {type(arch)}")
+builder.ArchitectureBuilderError: Неподдерживаемый тип архитектуры: <class 'tuple'>
+lobalAvgPool1D'}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:14,368 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:51:14,369 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:51:14,530 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 1,376
+2025-06-04 05:51:14,533 - builder - INFO - Модель успешно построена. Параметры: 1,376
+2025-06-04 05:51:15,906 - evaluator - INFO - [Worker 3] Оценка завершена: val_loss=0.0013, model_size=154911, train_time=34.44s
+2025-06-04 05:51:19,876 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=0.0027, model_size=61569, train_time=38.47s
+2025-06-04 05:51:31,582 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=0.0022, model_size=27649, train_time=50.13s
+2025-06-04 05:51:33,441 - evaluator - INFO - [Worker 4] Оценка завершена: val_loss=0.0069, model_size=1376, train_time=18.89s
+2025-06-04 05:51:43,619 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:43,619 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:43,620 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:51:43,620 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:51:43,621 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:51:43,621 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:51:43,650 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 05:51:43,651 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:51:43,654 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:51:44,994 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 1,376
+2025-06-04 05:51:44,994 - builder - INFO - Модель успешно построена. Параметры: 1,376
+2025-06-04 05:51:45,001 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 1,376
+2025-06-04 05:51:45,001 - builder - INFO - Модель успешно построена. Параметры: 1,376
+2025-06-04 05:51:45,013 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 1,376
+2025-06-04 05:51:45,013 - builder - INFO - Модель успешно построена. Параметры: 1,376
+2025-06-04 05:52:02,682 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=0.0036, model_size=1376, train_time=17.65s
+2025-06-04 05:52:02,692 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=0.0027, model_size=1376, train_time=17.68s
+2025-06-04 05:52:02,884 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=0.0018, model_size=1376, train_time=17.87s

@@ -1,0 +1,97 @@
+2025-06-04 12:18:59,826 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 12:18:59,826 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_121859.log
+2025-06-04 12:19:01,447 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-04 12:19:01,448 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 12:19:01,448 - __main__ - INFO - Mixed precision enabled
+2025-06-04 12:19:01,448 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/daily_sunspots_lags.csv
+2025-06-04 12:19:01,530 - __main__ - INFO - Dataset shapes:
+2025-06-04 12:19:01,531 - __main__ - INFO - Training: X=(40918, 7), y=(40918,)
+2025-06-04 12:19:01,531 - __main__ - INFO - Validation: X=(10230, 7), y=(10230,)
+2025-06-04 12:19:01,532 - __main__ - INFO - Test: X=(12787, 7), y=(12787,)
+2025-06-04 12:19:01,536 - initializer - INFO - Генерируется случайная архитектура из 3 блоков
+2025-06-04 12:19:01,536 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 12:19:01,537 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 12:19:01,537 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 12:19:01,537 - initializer - INFO - Генерируется случайная архитектура из 4 блоков
+2025-06-04 12:19:01,538 - initializer - INFO - Генерируется RNN архитектура: 3 GRU слоев
+2025-06-04 12:19:01,538 - initializer - INFO - Генерируется Conv-Dense архитектура: 1 conv слоев
+2025-06-04 12:19:01,538 - nas_genetic_alg - INFO - GA started: pop=5, gens=1
+2025-06-04 12:19:01,539 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 12:19:01,539 - evaluator - INFO - Запускаем параллельную оценку: 5 архитектур, 4 процессов
+2025-06-04 12:25:53,606 - evaluator - INFO - Оценка завершена. Фитнесы: [1574.461924796344, inf, 1938.2981238298016, 466.55821030453365, 452.12851261198404]
+2025-06-04 12:25:53,608 - nas_genetic_alg - INFO - Ind 0: fit=1574.4619, val_loss=1573.1825, arch=[{'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 3, 'strides': 2, 'padding': 'same', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.2, 'pooling': None}]
+2025-06-04 12:25:53,608 - nas_genetic_alg - INFO - Ind 1: fit=inf, val_loss=inf, arch={'parallel': {'branch_1_hybrid': [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 5, 'strides': 1, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.1, 'pooling': 'max3'}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 128, 'activation': 'tanh', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}], 'branch_2_hybrid': [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'strides': 2, 'padding': 'valid', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.2, 'pooling': None}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 256, 'activation': 'elu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]}}
+2025-06-04 12:25:53,608 - nas_genetic_alg - INFO - Ind 2: fit=1938.2981, val_loss=1936.9896, arch=[{'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.1}, {'layer': 'RNN', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.3}, {'layer': 'Conv1D', 'filters': 256, 'kernel_size': 9, 'strides': 2, 'padding': 'same', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}]
+2025-06-04 12:25:53,609 - nas_genetic_alg - INFO - Ind 3: fit=466.5582, val_loss=465.0226, arch=[{'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 12:25:53,609 - nas_genetic_alg - INFO - Ind 4: fit=452.1285, val_loss=450.8690, arch=[{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 256, 'activation': 'tanh', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 12:25:53,609 - nas_genetic_alg - INFO - Best fitness: 452.1285
+2025-06-04 12:25:53,609 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 12:25:53,610 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 12:25:53,611 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 12:32:36,994 - evaluator - INFO - Оценка завершена. Фитнесы: [456.7565526907306, 484.120695542822, 440.08556947600886]
+2025-06-04 12:32:36,995 - nas_genetic_alg - INFO - 
+GA done. Best fitness: 440.0856
+2025-06-04 12:32:36,996 - __main__ - INFO - Building best model with found architecture
+2025-06-04 12:32:36,996 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 12:32:36,999 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 12:32:37,803 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 17,609
+2025-06-04 12:32:37,804 - builder - INFO - Модель успешно построена. Параметры: 17,609
+2025-06-04 12:32:37,804 - __main__ - INFO - Compiling model
+2025-06-04 12:32:37,833 - __main__ - INFO - Training final model
+2025-06-04 12:35:06,038 - absl - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-06-04 12:35:06,106 - __main__ - INFO - Best model saved to /mnt/c/study/paper/diploma/logs/20250604/models/best_model.h5
+2025-06-04 12:35:08,484 - __main__ - INFO - Test metrics:
+2025-06-04 12:35:08,485 - __main__ - INFO - loss: 418.1697
+2025-06-04 12:35:08,486 - __main__ - INFO - mae: 13.7649
+2025-06-04 12:35:08,487 - __main__ - INFO - mse: 417.8806
+2025-06-04 12:35:10,749 - __main__ - INFO - 
+Detailed metrics:
+2025-06-04 12:35:10,752 - __main__ - INFO - mse: 418.0000
+2025-06-04 12:35:10,752 - __main__ - INFO - rmse: 20.4450
+2025-06-04 12:35:10,753 - __main__ - INFO - mae: 13.7656
+2025-06-04 12:35:10,753 - __main__ - INFO - r2: nan
+2025-06-04 12:35:10,754 - __main__ - INFO - explained_variance: 0.9284
+2025-06-04 12:35:10,760 - __main__ - INFO - Generating plots and visualizations...
+2025-06-04 12:35:11,903 - __main__ - INFO - Training history plot saved
+2025-06-04 12:35:13,289 - __main__ - INFO - Prediction vs Actual plot saved
+, name='generated_model')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/tracking.py", line 26, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/models/functional.py", line 136, in __init__
+    Function.__init__(self, inputs, outputs, name=name)
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/ops/function.py", line 77, in __init__
+    (nodes, nodes_by_depth, operations, operations_by_depth) = map_graph(
+                                                               ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/ops/function.py", line 329, in map_graph
+    raise ValueError(
+ValueError: The name "skip_3_adapt_skip" is used 2 times in the model. All operation names should be unique.
+2025-06-04 12:19:08,862 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 256, 'activation': 'tanh', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 12:19:08,863 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 12:19:08,864 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 12:19:08,935 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 17,609
+2025-06-04 12:19:08,935 - builder - INFO - Модель успешно построена. Параметры: 17,609
+2025-06-04 12:20:04,699 - evaluator - INFO - [Worker 4] Оценка завершена: val_loss=450.8690, model_size=17609, train_time=55.75s
+2025-06-04 12:20:22,808 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=1936.9896, model_size=24929, train_time=74.36s
+2025-06-04 12:20:51,352 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=1573.1825, model_size=19393, train_time=102.87s
+2025-06-04 12:25:52,913 - evaluator - INFO - [Worker 3] Оценка завершена: val_loss=465.0226, model_size=104105, train_time=404.45s
+2025-06-04 12:26:00,850 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 256, 'activation': 'tanh', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 12:26:00,850 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 12:26:00,851 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 12:26:00,851 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 12:26:00,852 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 12:26:00,852 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 12:26:00,872 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 256, 'activation': 'tanh', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 12:26:00,875 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 12:26:00,883 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 12:26:02,277 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 17,609
+2025-06-04 12:26:02,278 - builder - INFO - Модель успешно построена. Параметры: 17,609
+2025-06-04 12:26:02,288 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 17,609
+2025-06-04 12:26:02,289 - builder - INFO - Модель успешно построена. Параметры: 17,609
+2025-06-04 12:26:02,431 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 104,105
+2025-06-04 12:26:02,432 - builder - INFO - Модель успешно построена. Параметры: 104,105
+2025-06-04 12:26:59,304 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=438.8249, model_size=17609, train_time=57.01s
+2025-06-04 12:26:59,952 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=455.4954, model_size=17609, train_time=57.64s
+2025-06-04 12:32:36,517 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=482.5864, model_size=104105, train_time=394.07s
