@@ -1,0 +1,54 @@
+2025-06-04 05:27:31,031 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 05:27:31,031 - __main__ - INFO - Logs will be written to: /mnt/c/study/diploma/logs/20250604/ga_run_20250604_052731.log
+2025-06-04 05:27:32,276 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-04 05:27:32,278 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 05:27:32,279 - __main__ - INFO - Mixed precision enabled
+2025-06-04 05:27:32,280 - __main__ - INFO - Loading dataset from /mnt/c/study/diploma/datasets/mackey_glass_dataset.csv
+2025-06-04 05:27:32,467 - __main__ - INFO - Dataset shapes:
+2025-06-04 05:27:32,468 - __main__ - INFO - Training: X=(12780, 30), y=(12780,)
+2025-06-04 05:27:32,468 - __main__ - INFO - Validation: X=(3196, 30), y=(3196,)
+2025-06-04 05:27:32,469 - __main__ - INFO - Test: X=(3994, 30), y=(3994,)
+2025-06-04 05:27:32,473 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 05:27:32,473 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 05:27:32,473 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 05:27:32,474 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 05:27:32,474 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 05:27:32,474 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 05:27:32,474 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 05:27:32,474 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 05:27:32,475 - initializer - INFO - Генерируется RNN архитектура: 1 GRU слоев
+2025-06-04 05:27:32,475 - initializer - INFO - Генерируется Conv-Dense архитектура: 3 conv слоев
+2025-06-04 05:27:32,475 - initializer - INFO - Генерируется Conv-Dense архитектура: 3 conv слоев
+2025-06-04 05:27:32,476 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 05:27:32,476 - initializer - INFO - Генерируется Conv-Dense архитектура: 3 conv слоев
+2025-06-04 05:27:32,476 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 05:27:32,476 - initializer - INFO - Генерируется Conv-Dense архитектура: 1 conv слоев
+2025-06-04 05:27:32,477 - initializer - INFO - Генерируется случайная архитектура из 2 блоков
+2025-06-04 05:27:32,477 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 05:27:32,477 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 05:27:32,477 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 05:27:32,478 - initializer - INFO - Генерируется случайная архитектура из 2 блоков
+2025-06-04 05:27:32,478 - nas_genetic_alg - INFO - GA started: pop=20, gens=5
+2025-06-04 05:27:32,478 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 05:27:32,478 - evaluator - INFO - Запускаем параллельную оценку: 20 архитектур, 4 процессов
+2025-06-04 05:27:37,101 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 9, 'strides': 1, 'padding': 'valid', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.0, 'pooling': 'max2'}, {'layer': 'LSTM', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 05:27:37,101 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:27:37,105 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:27:37,197 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 5, 'strides': 1, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.1, 'pooling': 'max3'}, {'layer': 'LSTM', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 64, 'activation': 'tanh', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 05:27:37,198 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:27:37,198 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 05:27:37,198 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:27:37,199 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:27:37,199 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:27:37,449 - evaluator - INFO - [Worker 6] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.2, 'pooling': None}, {'layer': 'LSTM', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 32, 'activation': 'tanh', 'kernel_regularizer': None, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 05:27:37,451 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-04 05:27:37,453 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 05:27:38,779 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 116,160
+2025-06-04 05:27:38,779 - builder - INFO - Модель успешно построена. Параметры: 116,160
+2025-06-04 05:27:38,787 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 91,072
+2025-06-04 05:27:38,787 - builder - INFO - Модель успешно построена. Параметры: 91,072
+2025-06-04 05:27:38,796 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 33,888
+2025-06-04 05:27:38,797 - builder - INFO - Модель успешно построена. Параметры: 33,888
+2025-06-04 05:27:38,913 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 9,568
+2025-06-04 05:27:38,914 - builder - INFO - Модель успешно построена. Параметры: 9,568

@@ -1,6 +1,7 @@
 {
     "ga_config": {
-        "population_size": 20,
+        "population_size": 10,
+        "selection_size": 5,
         "n_generations": 5,
         "mutation_rate": 0.2,
         "crossover_rate": 0.8,

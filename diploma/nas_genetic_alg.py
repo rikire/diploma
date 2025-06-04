@@ -76,7 +76,8 @@ class NasGeneticAlg:
         self.selection_strategy = self.ga_config.get('selection_strategy', 'tournament')
         self.use_pareto = self.ga_config.get('use_pareto', False)
         self.n_jobs = self.ga_config.get('n_jobs', 4)
-        
+        self.selection_size = self.ga_config.get('selection_size', self.population_size)
+
         # Initialize history
         self.history = {
             'best_fitness': [],
@@ -140,15 +141,15 @@ class NasGeneticAlg:
                     min_rank = min(pareto_ranks)
                     pareto_front = [i for i, r in enumerate(pareto_ranks) if r == min_rank]
                 selected = selector.pareto_selection(
-                    population, fitnesses, self.population_size, pareto_front=pareto_front
+                    population, fitnesses, self.selection_size, pareto_front=pareto_front
                 )
             else:
                 if self.selection_strategy == 'tournament':
-                    selected = selector.tournament_selection(population, fitnesses, self.population_size, minimize=True)
+                    selected = selector.tournament_selection(population, fitnesses, self.selection_size, minimize=True)
                 elif self.selection_strategy == 'roulette':
-                    selected = selector.roulette_wheel_selection(population, fitnesses, self.population_size, minimize=True)
+                    selected = selector.roulette_wheel_selection(population, fitnesses, self.selection_size, minimize=True)
                 elif self.selection_strategy == 'rank':
-                    selected = selector.rank_selection(population, fitnesses, self.population_size, minimize=True)
+                    selected = selector.rank_selection(population, fitnesses, self.selection_size, minimize=True)
                 else:
                     raise ValueError(f"Unknown selection strategy: {self.selection_strategy}")
 
