@@ -1,0 +1,18 @@
+2025-06-04 13:20:48,471 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 13:20:48,472 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_132048.log
+2025-06-04 13:20:48,473 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 13:20:48,473 - __main__ - INFO - Mixed precision enabled
+2025-06-04 13:20:48,474 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/daily_sunspots_lags.csv
+2025-06-04 13:20:48,555 - __main__ - INFO - Dataset shapes:
+2025-06-04 13:20:48,556 - __main__ - INFO - Training: X=(40918, 7), y=(40918,)
+2025-06-04 13:20:48,557 - __main__ - INFO - Validation: X=(10230, 7), y=(10230,)
+2025-06-04 13:20:48,557 - __main__ - INFO - Test: X=(12787, 7), y=(12787,)
+2025-06-04 13:20:48,561 - initializer - INFO - Генерируется случайная архитектура из 4 блоков
+2025-06-04 13:20:48,561 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 13:20:48,561 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 13:20:48,561 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 13:20:48,562 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 13:20:48,562 - nas_genetic_alg - INFO - GA started: pop=5, gens=1
+2025-06-04 13:20:48,562 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 13:20:48,562 - evaluator - INFO - Запускаем параллельную оценку: 5 архитектур, 4 процессов

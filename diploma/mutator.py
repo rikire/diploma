@@ -11,12 +11,6 @@ from initializer import (
     SmartArchitectureGenerator, generate_population
 )
 
-# Импортируем валидатор и генератор из существующих модулей
-from initializer import (
-    ArchitectureValidator, ArchitectureConstraints,
-    SmartArchitectureGenerator, generate_population
-)
-
 
 # Настройка логирования
 logger = logging.getLogger(__name__)

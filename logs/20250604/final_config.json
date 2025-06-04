@@ -1,0 +1,105 @@
+{
+  "ga_config": {
+    "population_size": 20,
+    "selection_size": 10,
+    "n_generations": 5,
+    "mutation_rate": 0.4,
+    "crossover_rate": 0.8,
+    "tournament_size": 3,
+    "elite_size": 1
+  },
+  "architecture_config": {
+    "min_layers": 2,
+    "max_layers": 10,
+    "layer_types": [
+      "Dense",
+      "LSTM",
+      "GRU",
+      "Conv1D"
+    ],
+    "activation_functions": [
+      "relu",
+      "tanh",
+      "sigmoid"
+    ],
+    "max_units": 128,
+    "min_units": 16,
+    "max_parallel_branches": 3,
+    "use_skip_connections": true,
+    "allow_residual": true
+  },
+  "training_params": {
+    "epochs": 10,
+    "batch_size": 32,
+    "validation_split": 0.2,
+    "callbacks": {
+      "early_stopping": {
+        "monitor": "val_loss",
+        "patience": 5,
+        "restore_best_weights": true
+      },
+      "reduce_lr": {
+        "monitor": "val_loss",
+        "factor": 0.5,
+        "patience": 3,
+        "min_lr": 1e-06
+      }
+    }
+  },
+  "compile_params": {
+    "optimizer": "adam",
+    "loss": "mse",
+    "metrics": [
+      "mae",
+      "mse"
+    ]
+  },
+  "optimizer_config": {
+    "n_trials": 30,
+    "timeout": 7200,
+    "param_ranges": {
+      "learning_rate": [
+        1e-05,
+        0.01
+      ],
+      "batch_size": [
+        16,
+        128
+      ],
+      "optimizer_name": [
+        "adam",
+        "adamw",
+        "rmsprop"
+      ],
+      "dropout_rate": [
+        0.1,
+        0.5
+      ]
+    }
+  },
+  "evaluation_metrics": [
+    "mse",
+    "mae",
+    "rmse",
+    "r2_score",
+    "explained_variance"
+  ],
+  "visualization": {
+    "plot_training_history": true,
+    "plot_prediction_vs_actual": true,
+    "plot_error_distribution": true,
+    "plot_architecture": true
+  },
+  "hardware": {
+    "use_gpu": true,
+    "mixed_precision": true,
+    "parallel_evaluations": 4
+  },
+  "logging": {
+    "level": "INFO",
+    "save_checkpoints": true,
+    "checkpoint_frequency": 5,
+    "save_best_architectures": true,
+    "log_population_stats": true
+  }
+}

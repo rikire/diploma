@@ -1,0 +1,244 @@
+2025-06-04 17:15:57,110 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 17:15:57,111 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_171557.log
+2025-06-04 17:18:04,635 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-04 17:18:04,637 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 17:18:04,639 - __main__ - INFO - Mixed precision enabled
+2025-06-04 17:18:04,640 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/forestfires.csv
+2025-06-04 17:18:04,710 - __main__ - INFO - Dataset shapes:
+2025-06-04 17:18:04,711 - __main__ - INFO - Training: X=(330, 12), y=(330,)
+2025-06-04 17:18:04,714 - __main__ - INFO - Validation: X=(83, 12), y=(83,)
+2025-06-04 17:18:04,716 - __main__ - INFO - Test: X=(104, 12), y=(104,)
+2025-06-04 17:18:04,735 - initializer - INFO - Генерируется случайная архитектура из 5 блоков
+2025-06-04 17:18:04,737 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 17:18:04,738 - initializer - INFO - Генерируется Conv-Dense архитектура: 2 conv слоев
+2025-06-04 17:18:04,739 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 17:18:04,740 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 17:18:04,741 - initializer - INFO - Генерируется Conv-Dense архитектура: 3 conv слоев
+2025-06-04 17:18:04,742 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 17:18:04,743 - initializer - INFO - Генерируется Conv-Dense архитектура: 1 conv слоев
+2025-06-04 17:18:04,744 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 17:18:04,745 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 17:18:04,748 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 17:18:04,751 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 17:18:04,751 - nas_genetic_alg - INFO - GA started: pop=10, gens=5
+2025-06-04 17:18:04,752 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 17:18:04,753 - evaluator - INFO - Запускаем параллельную оценку: 10 архитектур, 4 процессов
+2025-06-04 17:18:15,968 - evaluator - INFO - Оценка завершена. Фитнесы: [inf, inf, inf, inf, inf, inf, inf, inf, inf, inf]
+2025-06-04 17:18:15,969 - nas_genetic_alg - INFO - Ind 0: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:15,969 - nas_genetic_alg - INFO - Ind 1: fit=inf, val_loss=inf, arch=[{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 17:18:15,969 - nas_genetic_alg - INFO - Ind 2: fit=inf, val_loss=inf, arch=[{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.2, 'pooling': 'max3'}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 256, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 17:18:15,970 - nas_genetic_alg - INFO - Ind 3: fit=inf, val_loss=inf, arch={'parallel': {'branch_1_conv': [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 3, 'strides': 1, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.2, 'pooling': 'max2'}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': 'max2'}, {'layer': 'GlobalAvgPool1D'}], 'branch_2_hybrid': [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 5, 'strides': 1, 'padding': 'valid', 'activation': 'relu', 'batch_norm': False, 'dropout': 0.0, 'pooling': None}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 32, 'activation': 'elu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]}}
+2025-06-04 17:18:15,970 - nas_genetic_alg - INFO - Ind 4: fit=inf, val_loss=inf, arch=[{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 7, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.2, 'pooling': 'max2'}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 3, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.0, 'pooling': 'max2'}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.0, 'pooling': 'max3'}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 17:18:15,970 - nas_genetic_alg - INFO - Ind 5: fit=inf, val_loss=inf, arch=[{'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1, 'bidirectional': True}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 17:18:15,971 - nas_genetic_alg - INFO - Ind 6: fit=inf, val_loss=inf, arch=[{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 1, 'padding': 'valid', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.1, 'pooling': 'max2'}, {'layer': 'GlobalAvgPool1D'}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 17:18:15,971 - nas_genetic_alg - INFO - Ind 7: fit=inf, val_loss=inf, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 17:18:15,971 - nas_genetic_alg - INFO - Ind 8: fit=inf, val_loss=inf, arch={'parallel': {'branch_1_conv': [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 9, 'strides': 2, 'padding': 'valid', 'activation': 'relu', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 1, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.0, 'pooling': 'max3'}, {'layer': 'Conv1D', 'filters': 128, 'kernel_size': 7, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}], 'branch_2_rnn': [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]}}
+2025-06-04 17:18:15,971 - nas_genetic_alg - INFO - Ind 9: fit=inf, val_loss=inf, arch={'parallel': {'branch_1_conv': [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 5, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.2, 'pooling': None}, {'layer': 'Conv1D', 'filters': 128, 'kernel_size': 7, 'strides': 2, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GlobalAvgPool1D'}], 'branch_2_hybrid': [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 5, 'strides': 1, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.1, 'pooling': 'max3'}, {'layer': 'LSTM', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'elu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.2}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]}}
+2025-06-04 17:18:15,972 - nas_genetic_alg - INFO - Best fitness: inf
+2025-06-04 17:18:15,972 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 17:18:15,972 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 17:18:15,972 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-04 17:18:15,973 - crossover - INFO - Скрещивание завершено успешно
+2025-06-04 17:18:15,973 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-04 17:18:15,973 - mutator - INFO -   Исходная архитектура: [{'layer': 'Conv1D', 'filters': 64, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:15,974 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-04 17:18:15,974 - mutator - INFO -   Результат: [{'layer': 'Conv1D', 'filters': 128, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.4233647547427752}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 192, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:15,974 - nas_genetic_alg - INFO - 
+=== Generation 1 ===
+2025-06-04 17:18:15,974 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 17:18:23,666 - evaluator - INFO - Оценка завершена. Фитнесы: [inf, inf, inf]
+2025-06-04 17:18:23,667 - nas_genetic_alg - INFO - Ind 0: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:23,667 - nas_genetic_alg - INFO - Ind 1: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 17:18:23,667 - nas_genetic_alg - INFO - Ind 2: fit=inf, val_loss=inf, arch=[{'layer': 'Conv1D', 'filters': 128, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.4233647547427752}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 192, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:23,668 - nas_genetic_alg - INFO - Best fitness: inf
+2025-06-04 17:18:23,668 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 17:18:23,668 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 17:18:23,669 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-04 17:18:23,669 - crossover - INFO - Скрещивание завершено успешно
+2025-06-04 17:18:23,670 - nas_genetic_alg - INFO - 
+=== Generation 2 ===
+2025-06-04 17:18:23,670 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 17:18:31,413 - evaluator - INFO - Оценка завершена. Фитнесы: [inf, inf, inf]
+2025-06-04 17:18:31,414 - nas_genetic_alg - INFO - Ind 0: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,414 - nas_genetic_alg - INFO - Ind 1: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,415 - nas_genetic_alg - INFO - Ind 2: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,415 - nas_genetic_alg - INFO - Best fitness: inf
+2025-06-04 17:18:31,415 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 17:18:31,416 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 17:18:31,416 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-04 17:18:31,416 - crossover - INFO - Скрещивание завершено успешно
+2025-06-04 17:18:31,416 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-04 17:18:31,417 - mutator - INFO -   Исходная архитектура: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,417 - mutator - INFO - ADD_LAYER: Добавлен Dense(32) в позицию 4
+2025-06-04 17:18:31,417 - mutator - INFO -   Исходная: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,417 - mutator - INFO -   Результат: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 32, 'activation': 'relu'}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,418 - mutator - INFO - MUTATE_LIST: Применены мутации: add_layer
+2025-06-04 17:18:31,418 - mutator - INFO -   Результат: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 32, 'activation': 'relu'}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:31,418 - nas_genetic_alg - INFO - 
+=== Generation 3 ===
+2025-06-04 17:18:31,418 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 17:18:39,825 - evaluator - INFO - Оценка завершена. Фитнесы: [inf, inf, inf]
+2025-06-04 17:18:39,826 - nas_genetic_alg - INFO - Ind 0: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:39,826 - nas_genetic_alg - INFO - Ind 1: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 32, 'activation': 'relu'}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:39,827 - nas_genetic_alg - INFO - Ind 2: fit=inf, val_loss=inf, arch=[{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:39,827 - nas_genetic_alg - INFO - Best fitness: inf
+2025-06-04 17:18:39,827 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 17:18:39,828 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 17:18:39,828 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-04 17:18:39,829 - crossover - INFO - Скрещивание завершено успешно
+2025-06-04 17:18:39,829 - nas_genetic_alg - INFO - 
+=== Generation 4 ===
+2025-06-04 17:18:39,829 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+ayer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:21,735 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:21,736 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:21,757 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 17:18:21,757 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 128, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.4233647547427752}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 192, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:21,758 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:21,758 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:21,759 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 17:18:21,759 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:23,082 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 390,670
+2025-06-04 17:18:23,082 - builder - INFO - Модель успешно построена. Параметры: 390,670
+2025-06-04 17:18:23,140 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:23,142 - evaluator - ERROR - [Worker 1] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:23,162 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 675,277
+2025-06-04 17:18:23,165 - builder - INFO - Модель успешно построена. Параметры: 675,277
+2025-06-04 17:18:23,186 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:23,202 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 271,565
+2025-06-04 17:18:23,203 - builder - INFO - Модель успешно построена. Параметры: 271,565
+2025-06-04 17:18:23,234 - evaluator - ERROR - [Worker 0] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:23,268 - evaluator - ERROR - [Worker 2] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:28,970 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:28,972 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:28,973 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:29,069 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:29,069 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:29,069 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:29,069 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:29,073 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:29,073 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:30,838 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:30,861 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 675,277
+2025-06-04 17:18:30,862 - builder - INFO - Модель успешно построена. Параметры: 675,277
+2025-06-04 17:18:30,912 - evaluator - ERROR - [Worker 0] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:30,951 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:30,951 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:30,965 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 675,277
+2025-06-04 17:18:30,965 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 675,277
+2025-06-04 17:18:30,965 - builder - INFO - Модель успешно построена. Параметры: 675,277
+2025-06-04 17:18:30,966 - builder - INFO - Модель успешно построена. Параметры: 675,277
+2025-06-04 17:18:31,013 - evaluator - ERROR - [Worker 2] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:31,013 - evaluator - ERROR - [Worker 1] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:37,651 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:37,651 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:37,651 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 256, 'activation': 'relu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.1}, {'layer': 'Dense', 'units': 32, 'activation': 'relu'}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 17:18:37,651 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:37,651 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:37,651 - builder - INFO - Начинаем построение модели. Input shape: (12,)
+2025-06-04 17:18:37,652 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:37,652 - builder - INFO - Построение последовательной архитектуры из 6 слоёв
+2025-06-04 17:18:37,652 - builder - INFO - Построение последовательной архитектуры из 5 слоёв
+2025-06-04 17:18:39,266 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:39,284 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:39,285 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 675,277
+2025-06-04 17:18:39,285 - builder - INFO - Модель успешно построена. Параметры: 675,277
+2025-06-04 17:18:39,305 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 17:18:39,309 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 696,173
+2025-06-04 17:18:39,309 - builder - INFO - Модель успешно построена. Параметры: 696,173
+2025-06-04 17:18:39,322 - builder - INFO - Модель финализирована: вход (None, 12), выход (None, 1), params 675,277
+2025-06-04 17:18:39,323 - builder - INFO - Модель успешно построена. Параметры: 675,277
+2025-06-04 17:18:39,355 - evaluator - ERROR - [Worker 0] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:39,374 - evaluator - ERROR - [Worker 1] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object
+2025-06-04 17:18:39,393 - evaluator - ERROR - [Worker 2] Непредвиденная ошибка: Invalid dtype: object
+Traceback (most recent call last):
+  File "/mnt/c/study/paper/diploma/diploma/evaluator.py", line 189, in worker_evaluate_comprehensive
+    history = model.fit(
+              ^^^^^^^^^^
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/aboba/miniconda3/envs/diploma/lib/python3.12/site-packages/optree/ops.py", line 766, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid dtype: object

@@ -1,9 +1,9 @@
 {
     "ga_config": {
-        "population_size": 5,
-        "selection_size": 2,
-        "n_generations": 1,
-        "mutation_rate": 0.2,
+        "population_size": 20,
+        "selection_size": 10,
+        "n_generations": 5,
+        "mutation_rate": 0.4,
         "crossover_rate": 0.8,
         "tournament_size": 3,
         "elite_size": 1
@@ -14,7 +14,7 @@
         "max_layers": 10,
         "layer_types": ["Dense", "LSTM", "GRU", "Conv1D"],
         "activation_functions": ["relu", "tanh", "sigmoid"],
-        "max_units": 256,
+        "max_units": 128,
         "min_units": 16,
         "max_parallel_branches": 3,
         "use_skip_connections": true,
@@ -28,13 +28,13 @@
         "callbacks": {
             "early_stopping": {
                 "monitor": "val_loss",
-                "patience": 10,
+                "patience": 5,
                 "restore_best_weights": true
             },
             "reduce_lr": {
                 "monitor": "val_loss",
                 "factor": 0.5,
-                "patience": 5,
+                "patience": 3,
                 "min_lr": 1e-6
             }
         }

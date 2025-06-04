@@ -1,0 +1,18 @@
+2025-06-04 13:10:34,608 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 13:10:34,609 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_131034.log
+2025-06-04 13:10:34,611 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 13:10:34,612 - __main__ - INFO - Mixed precision enabled
+2025-06-04 13:10:34,612 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/daily_sunspots_lags.csv
+2025-06-04 13:10:34,737 - __main__ - INFO - Dataset shapes:
+2025-06-04 13:10:34,738 - __main__ - INFO - Training: X=(40918, 7), y=(40918,)
+2025-06-04 13:10:34,739 - __main__ - INFO - Validation: X=(10230, 7), y=(10230,)
+2025-06-04 13:10:34,740 - __main__ - INFO - Test: X=(12787, 7), y=(12787,)
+2025-06-04 13:10:34,747 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-04 13:10:34,747 - initializer - INFO - Генерируется Conv-Dense архитектура: 1 conv слоев
+2025-06-04 13:10:34,748 - initializer - INFO - Генерируется Conv-Dense архитектура: 3 conv слоев
+2025-06-04 13:10:34,749 - initializer - INFO - Генерируется RNN архитектура: 1 GRU слоев
+2025-06-04 13:10:34,750 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 13:10:34,751 - nas_genetic_alg - INFO - GA started: pop=5, gens=1
+2025-06-04 13:10:34,751 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 13:10:34,752 - evaluator - INFO - Запускаем параллельную оценку: 5 архитектур, 4 процессов

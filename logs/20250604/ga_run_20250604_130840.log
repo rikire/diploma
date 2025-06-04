@@ -1,0 +1,47 @@
+2025-06-04 13:08:40,110 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 13:08:40,111 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_130840.log
+2025-06-04 13:08:40,112 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 13:08:40,113 - __main__ - INFO - Mixed precision enabled
+2025-06-04 13:08:40,113 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/daily_sunspots_lags.csv
+2025-06-04 13:08:40,195 - __main__ - INFO - Dataset shapes:
+2025-06-04 13:08:40,196 - __main__ - INFO - Training: X=(40918, 7), y=(40918,)
+2025-06-04 13:08:40,196 - __main__ - INFO - Validation: X=(10230, 7), y=(10230,)
+2025-06-04 13:08:40,197 - __main__ - INFO - Test: X=(12787, 7), y=(12787,)
+2025-06-04 13:08:40,203 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-04 13:08:40,203 - initializer - INFO - Генерируется RNN архитектура: 3 GRU слоев
+2025-06-04 13:08:40,204 - initializer - INFO - Генерируется случайная архитектура из 4 блоков
+2025-06-04 13:08:40,205 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-04 13:08:40,206 - initializer - INFO - Генерируется случайная архитектура из 3 блоков
+2025-06-04 13:08:40,207 - nas_genetic_alg - INFO - GA started: pop=5, gens=1
+2025-06-04 13:08:40,207 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 13:08:40,207 - evaluator - INFO - Запускаем параллельную оценку: 5 архитектур, 4 процессов
+2025-06-04 13:08:44,535 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'strides': 1, 'padding': 'same', 'activation': 'swish', 'batch_norm': False, 'dropout': 0.2, 'pooling': 'max3'}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 128, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.3}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 13:08:44,535 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 13:08:44,537 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 13:08:44,607 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'bidirectional': True}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-04 13:08:44,610 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 13:08:44,611 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 13:08:44,647 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 9, 'strides': 2, 'padding': 'valid', 'activation': 'swish', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}, {'layer': 'Conv1D', 'filters': 256, 'kernel_size': 5, 'strides': 2, 'padding': 'same', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.0, 'pooling': None}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 7, 'strides': 1, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.2, 'pooling': 'max2'}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 13:08:44,647 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 13:08:44,649 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 13:08:44,661 - builder - WARNING - В Conv1D seq_0_Conv1D_1: kernel_size (9) > seq_len (7), меняем padding на 'same'
+2025-06-04 13:08:44,729 - evaluator - INFO - [Worker 3] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.0, 'bidirectional': True}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 13:08:44,731 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 13:08:44,733 - builder - INFO - Построение последовательной архитектуры из 3 слоёв
+2025-06-04 13:08:46,285 - builder - WARNING - В Conv1D seq_2_Conv1D_3: kernel_size (7) > seq_len (2), меняем padding на 'same'
+2025-06-04 13:08:46,358 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 156,649
+2025-06-04 13:08:46,358 - builder - INFO - Модель успешно построена. Параметры: 156,649
+2025-06-04 13:08:46,459 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 10,825
+2025-06-04 13:08:46,459 - builder - INFO - Модель успешно построена. Параметры: 10,825
+2025-06-04 13:08:46,499 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 43,617
+2025-06-04 13:08:46,499 - builder - INFO - Модель успешно построена. Параметры: 43,617
+2025-06-04 13:08:46,537 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 36,169
+2025-06-04 13:08:46,538 - builder - INFO - Модель успешно построена. Параметры: 36,169
+2025-06-04 13:10:21,774 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=452.1039, model_size=156649, train_time=95.39s
+2025-06-04 13:10:22,243 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 5, 'strides': 1, 'padding': 'valid', 'activation': 'elu', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}, {'layer': 'Dense', 'units': 32, 'activation': 'relu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}, {'layer': 'LSTM', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}]
+2025-06-04 13:10:22,243 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 13:10:22,245 - builder - INFO - Построение последовательной архитектуры из 3 слоёв
+2025-06-04 13:10:22,521 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 13:10:22,547 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 11,649
+2025-06-04 13:10:22,548 - builder - INFO - Модель успешно построена. Параметры: 11,649

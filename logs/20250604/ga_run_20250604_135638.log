@@ -1,0 +1,75 @@
+2025-06-04 13:56:38,639 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-04 13:56:38,639 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250604/ga_run_20250604_135638.log
+2025-06-04 13:56:40,471 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-04 13:56:40,473 - __main__ - INFO - Configuring GPU settings...
+2025-06-04 13:56:40,475 - __main__ - INFO - Mixed precision enabled
+2025-06-04 13:56:40,476 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/daily_sunspots_lags.csv
+2025-06-04 13:56:40,589 - __main__ - INFO - Dataset shapes:
+2025-06-04 13:56:40,590 - __main__ - INFO - Training: X=(40918, 7), y=(40918,)
+2025-06-04 13:56:40,590 - __main__ - INFO - Validation: X=(10230, 7), y=(10230,)
+2025-06-04 13:56:40,590 - __main__ - INFO - Test: X=(12787, 7), y=(12787,)
+2025-06-04 13:56:40,593 - initializer - INFO - Генерируется RNN архитектура: 3 GRU слоев
+2025-06-04 13:56:40,594 - initializer - INFO - Генерируется RNN архитектура: 3 GRU слоев
+2025-06-04 13:56:40,595 - initializer - INFO - Генерируется RNN архитектура: 1 GRU слоев
+2025-06-04 13:56:40,596 - nas_genetic_alg - INFO - GA started: pop=3, gens=1
+2025-06-04 13:56:40,596 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-04 13:56:40,596 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 14:01:01,858 - evaluator - INFO - Оценка завершена. Фитнесы: [445.09159095175926, 450.15890374054715, 601.7551017921335]
+2025-06-04 14:01:01,859 - nas_genetic_alg - INFO - Ind 0: fit=445.0916, val_loss=443.4101, arch=[{'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 14:01:01,860 - nas_genetic_alg - INFO - Ind 1: fit=450.1589, val_loss=448.7163, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'bidirectional': True}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'bidirectional': True}, {'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 14:01:01,860 - nas_genetic_alg - INFO - Ind 2: fit=601.7551, val_loss=600.3899, arch=[{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-04 14:01:01,860 - nas_genetic_alg - INFO - Best fitness: 445.0916
+2025-06-04 14:01:01,861 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-04 14:01:01,861 - selecter - INFO - Отобрано 2 особей турнирной селекцией
+2025-06-04 14:01:01,862 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-04 14:01:01,862 - crossover - INFO - Скрещивание завершено успешно
+2025-06-04 14:01:01,862 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-04 14:01:01,863 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 14:01:01,863 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-04 14:01:01,863 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 256, 'activation': 'sigmoid', 'return_sequences': True, 'dropout': 0.08000228762873648, 'recurrent_dropout': 0.07455171426942235}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.14899190064924886, 'recurrent_dropout': 0.14291369018957403}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 14:01:01,864 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-04 14:01:01,864 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-04 14:01:01,864 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-04 14:01:01,864 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 512, 'activation': 'linear', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 8, 'activation': 'swish', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.008636802601399839, 'dropout': 0.3239603510561065}]
+2025-06-04 14:01:01,865 - evaluator - INFO - Запускаем параллельную оценку: 3 архитектур, 4 процессов
+2025-06-04 14:07:48,738 - evaluator - INFO - Оценка завершена. Фитнесы: [464.2699429947629, 451.88455295074283, 536.6895597751657]
+2025-06-04 14:07:48,739 - nas_genetic_alg - INFO - 
+GA done. Best fitness: 451.8846
+2025-06-04 14:07:48,739 - __main__ - INFO - Building best model with found architecture
+2025-06-04 14:07:48,740 - builder - INFO - Начинаем построение модели. Input shape: (7,)
+2025-06-04 14:07:48,741 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 14:07:49,697 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 626,153
+2025-06-04 14:07:49,698 - builder - INFO - Модель успешно построена. Параметры: 626,153
+2025-06-04 14:07:49,698 - __main__ - INFO - Compiling model
+2025-06-04 14:07:49,726 - __main__ - INFO - Training final model
+2025-06-04 14:12:26,808 - absl - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-06-04 14:12:26,943 - __main__ - INFO - Best model saved to /mnt/c/study/paper/diploma/logs/20250604/models/best_model.h5
+2025-06-04 14:12:32,569 - __main__ - INFO - Test metrics:
+2025-06-04 14:12:32,569 - __main__ - INFO - loss: 462.0011
+2025-06-04 14:12:32,569 - __main__ - INFO - mae: 14.8342
+2025-06-04 14:12:32,570 - __main__ - INFO - mse: 461.9781
+2025-06-04 14:12:37,356 - __main__ - INFO - y_test: min=0.0000, max=528.0000, mean=83.1741, std=76.3706, nan=0, inf=0
+2025-06-04 14:12:37,358 - __main__ - INFO - y_pred_test: min=-65.9375, max=494.0000, mean=inf, std=inf, nan=0, inf=0
+2025-06-04 14:12:37,358 - __main__ - WARNING - y_pred_test содержит слишком большие значения! min=-65.9375, max=494.0
+2025-06-04 14:12:37,365 - __main__ - INFO - 
+Detailed metrics:
+2025-06-04 14:12:37,365 - __main__ - INFO - mse: 462.0000
+2025-06-04 14:12:37,366 - __main__ - INFO - rmse: 21.4942
+2025-06-04 14:12:37,366 - __main__ - INFO - mae: 14.8359
+2025-06-04 14:12:37,366 - __main__ - INFO - r2: nan
+2025-06-04 14:12:37,366 - __main__ - INFO - explained_variance: 0.9214
+2025-06-04 14:12:37,368 - __main__ - INFO - Generating plots and visualizations...
+2025-06-04 14:12:38,193 - __main__ - INFO - Training history plot saved
+2025-06-04 14:12:42,390 - __main__ - INFO - Prediction vs Actual plot saved
+550 - builder - INFO - Построение последовательной архитектуры из 4 слоёв
+2025-06-04 14:01:07,908 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 626,153
+2025-06-04 14:01:07,908 - builder - INFO - Модель успешно построена. Параметры: 626,153
+2025-06-04 14:01:07,910 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 626,153
+2025-06-04 14:01:07,910 - builder - INFO - Модель успешно построена. Параметры: 626,153
+2025-06-04 14:01:07,998 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-04 14:01:08,010 - builder - INFO - Модель финализирована: вход (None, 7), выход (None, 1), params 1,419,791
+2025-06-04 14:01:08,011 - builder - INFO - Модель успешно построена. Параметры: 1,419,791
+2025-06-04 14:04:39,077 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=462.5873, model_size=626153, train_time=211.16s
+2025-06-04 14:05:34,136 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=534.9136, model_size=1419791, train_time=266.11s
+2025-06-04 14:07:48,285 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=450.1701, model_size=626153, train_time=400.36s

@@ -23,8 +23,6 @@ from tensorflow.keras import mixed_precision
 from tensorflow.keras.utils import plot_model
 import multiprocessing
 
-# Отключить GPU для избежания ошибок CUDA при multiprocessing
-# os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 # Ensure proper multiprocessing start method
 if __name__ == "__main__":
@@ -168,26 +166,34 @@ def plot_prediction_vs_actual(model, X, y, save_dir: str):
     plt.close()
 
 def plot_error_distribution(model, X, y, save_dir: str):
-    """Plot error distribution"""
-    y_pred = model.predict(X)
-    errors = y_pred - y
-    
-    plt.figure(figsize=(10, 6))
-    sns.histplot(errors, kde=True)
-    plt.xlabel('Prediction Error')
-    plt.ylabel('Count')
-    plt.title('Error Distribution')
-    
-    # Add statistics
-    plt.text(0.05, 0.95,
-             f'Mean: {np.mean(errors):.4f}\n'
-             f'Std: {np.std(errors):.4f}',
-             transform=plt.gca().transAxes,
-             bbox=dict(facecolor='white', alpha=0.8))
-    
-    plot_path = os.path.join(save_dir, 'error_distribution.png')
-    plt.savefig(plot_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    """Plot error distribution with robust checks"""
+    try:
+        y_pred = model.predict(X)
+        y = np.ravel(y)
+        y_pred = np.ravel(y_pred)
+        errors = y_pred - y
+        # Диагностика
+        if not np.all(np.isfinite(errors)) or np.isinf(np.nanmean(errors)) or np.isinf(np.nanstd(errors)):
+            logging.warning(f"Ошибка построения графика: ошибки содержат inf/nan или переполнение. min={np.nanmin(errors)}, max={np.nanmax(errors)}")
+            return
+        if np.abs(errors).max() > 1e6:
+            logging.warning(f"Ошибка построения графика: слишком большой диапазон ошибок (max abs={np.abs(errors).max()}). График не строится.")
+            return
+        plt.figure(figsize=(10, 6))
+        sns.histplot(errors, kde=True)
+        plt.xlabel('Prediction Error')
+        plt.ylabel('Count')
+        plt.title('Error Distribution')
+        plt.text(0.05, 0.95,
+                 f'Mean: {np.mean(errors):.4f}\n'
+                 f'Std: {np.std(errors):.4f}',
+                 transform=plt.gca().transAxes,
+                 bbox=dict(facecolor='white', alpha=0.8))
+        plot_path = os.path.join(save_dir, 'error_distribution.png')
+        plt.savefig(plot_path, dpi=300, bbox_inches='tight')
+        plt.close()
+    except Exception as e:
+        logging.error(f"Ошибка при построении графика распределения ошибок: {e}", exc_info=True)
 
 def optimize_hyperparameters(model, data, config):
     """Optimize model hyperparameters"""
@@ -461,6 +467,7 @@ def main():
         train_data=(X_train, y_train),
         val_data=(X_val, y_val)
     )
+    logger.info(f"Best architecture found by GA: {json.dumps(best_architecture, indent=2, ensure_ascii=False)}")
     
     # Построение лучшей модели
     logger.info("Building best model with found architecture")
@@ -544,6 +551,31 @@ def main():
     
     # Расчет дополнительных метрик
     y_pred_test = best_model.predict(X_test)
+    
+    # --- Диагностика и фильтрация некорректных значений ---
+    def log_array_stats(arr, name):
+        logger.info(f"{name}: min={np.nanmin(arr):.4f}, max={np.nanmax(arr):.4f}, mean={np.nanmean(arr):.4f}, std={np.nanstd(arr):.4f}, nan={np.isnan(arr).sum()}, inf={np.isinf(arr).sum()}")
+        if np.isinf(np.nanmean(arr)) or np.isinf(np.nanstd(arr)):
+            logger.warning(f"{name} содержит слишком большие значения! min={np.nanmin(arr)}, max={np.nanmax(arr)}")
+
+    # Приведение к 1D
+    y_test = np.ravel(y_test)
+    y_pred_test = np.ravel(y_pred_test)
+
+    log_array_stats(y_test, "y_test")
+    log_array_stats(y_pred_test, "y_pred_test")
+
+    # Фильтрация некорректных значений
+    mask = np.isfinite(y_test) & np.isfinite(y_pred_test)
+    if not np.all(mask):
+        logger.warning(f"Некорректные значения обнаружены: {np.sum(~mask)} элементов будут отброшены для метрик и графиков.")
+    y_test_clean = y_test[mask]
+    y_pred_test_clean = y_pred_test[mask]
+
+    # Использовать очищенные значения для дальнейших метрик и графиков
+    y_test = y_test_clean
+    y_pred_test = y_pred_test_clean
+    
     detailed_metrics = calculate_metrics(y_test, y_pred_test)
     logger.info("\nDetailed metrics:")
     for metric, value in detailed_metrics.items():
