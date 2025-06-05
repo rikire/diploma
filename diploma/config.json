@@ -1,7 +1,7 @@
 {
     "ga_config": {
-        "population_size": 20,
-        "selection_size": 10,
+        "population_size": 10,
+        "selection_size": 5,
         "n_generations": 5,
         "mutation_rate": 0.4,
         "crossover_rate": 0.8,
@@ -22,7 +22,7 @@
     },
     
     "training_params": {
-        "epochs": 10,
+        "epochs": 3,
         "batch_size": 32,
         "validation_split": 0.2,
         "callbacks": {

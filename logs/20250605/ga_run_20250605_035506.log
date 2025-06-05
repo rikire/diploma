@@ -1,0 +1,284 @@
+2025-06-05 03:55:06,923 - __main__ - INFO - Starting Neural Architecture Search
+2025-06-05 03:55:06,924 - __main__ - INFO - Logs will be written to: /mnt/c/study/paper/diploma/logs/20250605/ga_run_20250605_035506.log
+2025-06-05 03:55:08,578 - __main__ - INFO - Configuration updated through interactive mode
+2025-06-05 03:55:08,580 - __main__ - INFO - Configuring GPU settings...
+2025-06-05 03:55:08,581 - __main__ - INFO - Mixed precision enabled
+2025-06-05 03:55:08,582 - __main__ - INFO - Loading dataset from /mnt/c/study/paper/diploma/datasets/mackey_glass_dataset.csv
+2025-06-05 03:55:08,794 - __main__ - INFO - Dataset shapes:
+2025-06-05 03:55:08,795 - __main__ - INFO - Training: X=(12780, 30), y=(12780,)
+2025-06-05 03:55:08,795 - __main__ - INFO - Validation: X=(3196, 30), y=(3196,)
+2025-06-05 03:55:08,796 - __main__ - INFO - Test: X=(3994, 30), y=(3994,)
+2025-06-05 03:55:08,800 - initializer - INFO - Генерируется RNN архитектура: 3 GRU слоев
+2025-06-05 03:55:08,800 - initializer - INFO - Генерируется случайная архитектура из 3 блоков
+2025-06-05 03:55:08,801 - initializer - INFO - Генерируется RNN архитектура: 1 GRU слоев
+2025-06-05 03:55:08,801 - initializer - INFO - Генерируется случайная архитектура из 4 блоков
+2025-06-05 03:55:08,801 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-05 03:55:08,801 - initializer - INFO - Генерируется параллельная архитектура с 2 ветвями
+2025-06-05 03:55:08,802 - initializer - INFO - Генерируется RNN архитектура: 2 GRU слоев
+2025-06-05 03:55:08,802 - initializer - INFO - Генерируется RNN архитектура: 1 GRU слоев
+2025-06-05 03:55:08,802 - initializer - INFO - Создана simple гибридная архитектура из 4 слоев
+2025-06-05 03:55:08,802 - initializer - INFO - Генерируется случайная архитектура из 4 блоков
+2025-06-05 03:55:08,803 - nas_genetic_alg - INFO - GA started: pop=10, gens=5
+2025-06-05 03:55:08,803 - nas_genetic_alg - INFO - 
+=== Generation 0 ===
+2025-06-05 03:55:08,803 - evaluator - INFO - Запускаем параллельную оценку: 10 архитектур, 4 процессов
+2025-06-05 04:08:04,408 - evaluator - INFO - Оценка завершена. Фитнесы: [1.4374117457307491, 1.2491542919333256, 1.138100923433102, 1.2795948218096835, 1.3790431308153772, 1.5218073354856783, 1.4391669886277725, 1.2369365168229125, 1.6775627675412397, 1.5356024436574438]
+2025-06-05 04:08:04,409 - nas_genetic_alg - INFO - Ind 0: fit=1.4374, val_loss=0.0029, arch=[{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-05 04:08:04,409 - nas_genetic_alg - INFO - Ind 1: fit=1.2492, val_loss=0.0674, arch=[{'layer': 'Dense', 'units': 128, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.1}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.3}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 5, 'strides': 2, 'padding': 'valid', 'activation': 'relu', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}]
+2025-06-05 04:08:04,410 - nas_genetic_alg - INFO - Ind 2: fit=1.1381, val_loss=0.0021, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:08:04,410 - nas_genetic_alg - INFO - Ind 3: fit=1.2796, val_loss=0.0359, arch=[{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 9, 'strides': 2, 'padding': 'same', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.0, 'pooling': None}, {'layer': 'Dense', 'units': 32, 'activation': 'elu', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.0001, 'dropout': 0.2}, {'layer': 'Dense', 'units': 32, 'activation': 'tanh', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.001, 'dropout': 0.2}, {'layer': 'Conv1D', 'filters': 128, 'kernel_size': 5, 'strides': 2, 'padding': 'valid', 'activation': 'relu', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}]
+2025-06-05 04:08:04,410 - nas_genetic_alg - INFO - Ind 4: fit=1.3790, val_loss=0.0016, arch={'parallel': {'branch_1_rnn': [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}], 'branch_2_rnn': [{'layer': 'RNN', 'units': 64, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'LSTM', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}]}}
+2025-06-05 04:08:04,410 - nas_genetic_alg - INFO - Ind 5: fit=1.5218, val_loss=0.0097, arch={'parallel': {'branch_1_rnn': [{'layer': 'RNN', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0}], 'branch_2_rnn': [{'layer': 'LSTM', 'units': 128, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}]}}
+2025-06-05 04:08:04,411 - nas_genetic_alg - INFO - Ind 6: fit=1.4392, val_loss=0.0006, arch=[{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-05 04:08:04,411 - nas_genetic_alg - INFO - Ind 7: fit=1.2369, val_loss=0.0007, arch=[{'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-05 04:08:04,411 - nas_genetic_alg - INFO - Ind 8: fit=1.6776, val_loss=0.0012, arch=[{'layer': 'Conv1D', 'filters': 32, 'kernel_size': 9, 'strides': 1, 'padding': 'same', 'activation': 'relu', 'batch_norm': False, 'dropout': 0.0, 'pooling': None}, {'layer': 'LSTM', 'units': 256, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Dense', 'units': 128, 'activation': 'tanh', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.2}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.001, 'dropout': 0.0}]
+2025-06-05 04:08:04,412 - nas_genetic_alg - INFO - Ind 9: fit=1.5356, val_loss=0.0014, arch=[{'layer': 'Dense', 'units': 128, 'activation': 'tanh', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.2}, {'layer': 'RNN', 'units': 256, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'LSTM', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1, 'recurrent_activation': 'sigmoid', 'use_bias': True}, {'layer': 'Conv1D', 'filters': 512, 'kernel_size': 3, 'strides': 2, 'padding': 'same', 'activation': 'elu', 'batch_norm': True, 'dropout': 0.1, 'pooling': None}]
+2025-06-05 04:08:04,412 - nas_genetic_alg - INFO - Best fitness: 1.1381
+2025-06-05 04:08:04,412 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-05 04:08:04,412 - selecter - INFO - Отобрано 5 особей турнирной селекцией
+2025-06-05 04:08:04,413 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:08:04,413 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:08:04,414 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:08:04,414 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-05 04:08:04,414 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-05 04:08:04,414 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'tanh', 'kernel_regularizer': None, 'dropout': 0.38970077976003153}]
+2025-06-05 04:08:04,415 - nas_genetic_alg - INFO - 
+=== Generation 1 ===
+2025-06-05 04:08:04,415 - evaluator - INFO - Запускаем параллельную оценку: 6 архитектур, 4 процессов
+2025-06-05 04:10:59,307 - evaluator - INFO - Оценка завершена. Фитнесы: [1.13615853728516, 1.4010015071431308, 1.1441110275479667, 1.4539920618718198, 1.356182600911738, 1.2390438572416589]
+2025-06-05 04:10:59,308 - nas_genetic_alg - INFO - Ind 0: fit=1.1362, val_loss=0.0031, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:10:59,309 - nas_genetic_alg - INFO - Ind 1: fit=1.4010, val_loss=0.0012, arch={'parallel': {'branch_1_rnn': [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}], 'branch_2_rnn': [{'layer': 'RNN', 'units': 64, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.0, 'recurrent_dropout': 0.0}, {'layer': 'LSTM', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.2, 'recurrent_dropout': 0.0, 'recurrent_activation': 'sigmoid', 'use_bias': True}]}}
+2025-06-05 04:10:59,309 - nas_genetic_alg - INFO - Ind 2: fit=1.1441, val_loss=0.0026, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:10:59,309 - nas_genetic_alg - INFO - Ind 3: fit=1.4540, val_loss=0.1026, arch=[{'layer': 'GRU', 'units': 128, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'tanh', 'kernel_regularizer': None, 'dropout': 0.38970077976003153}]
+2025-06-05 04:10:59,310 - nas_genetic_alg - INFO - Ind 4: fit=1.3562, val_loss=0.0009, arch=[{'layer': 'GRU', 'units': 64, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.0, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.2, 'recurrent_dropout': 0.0}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.0}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': 'L1L2', 'coef_regularizer': 0.0001, 'dropout': 0.0}]
+2025-06-05 04:10:59,310 - nas_genetic_alg - INFO - Ind 5: fit=1.2390, val_loss=0.0485, arch=[{'layer': 'Dense', 'units': 128, 'activation': 'relu', 'kernel_regularizer': None, 'dropout': 0.1}, {'layer': 'Dense', 'units': 64, 'activation': 'elu', 'kernel_regularizer': 'L1', 'coef_regularizer': 0.0001, 'dropout': 0.3}, {'layer': 'Conv1D', 'filters': 64, 'kernel_size': 5, 'strides': 2, 'padding': 'valid', 'activation': 'relu', 'batch_norm': False, 'dropout': 0.1, 'pooling': None}]
+2025-06-05 04:10:59,310 - nas_genetic_alg - INFO - Best fitness: 1.1362
+2025-06-05 04:10:59,310 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-05 04:10:59,311 - selecter - INFO - Отобрано 5 особей турнирной селекцией
+2025-06-05 04:10:59,311 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:10:59,312 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:10:59,312 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:10:59,312 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:10:59,313 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:10:59,313 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:10:59,313 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-05 04:10:59,313 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'tanh', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:10:59,314 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:10:59,314 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:10:59,314 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-05 04:10:59,315 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.25713110378639287, 'recurrent_dropout': 0.08102921862342104}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:10:59,315 - nas_genetic_alg - INFO - 
+=== Generation 2 ===
+2025-06-05 04:10:59,315 - evaluator - INFO - Запускаем параллельную оценку: 6 архитектур, 4 процессов
+2025-06-05 04:14:17,147 - evaluator - INFO - Оценка завершена. Фитнесы: [1.1532756609490455, 1.1781864583223356, 1.1526171331078865, 1.1532149096787463, 1.1282279689254882, 1.129339136137997]
+2025-06-05 04:14:17,151 - nas_genetic_alg - INFO - Ind 0: fit=1.1533, val_loss=0.0030, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,152 - nas_genetic_alg - INFO - Ind 1: fit=1.1782, val_loss=0.0281, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'tanh', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,153 - nas_genetic_alg - INFO - Ind 2: fit=1.1526, val_loss=0.0026, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,153 - nas_genetic_alg - INFO - Ind 3: fit=1.1532, val_loss=0.0027, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,153 - nas_genetic_alg - INFO - Ind 4: fit=1.1282, val_loss=0.0026, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,154 - nas_genetic_alg - INFO - Ind 5: fit=1.1293, val_loss=0.0036, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.25713110378639287, 'recurrent_dropout': 0.08102921862342104}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,154 - nas_genetic_alg - INFO - Best fitness: 1.1282
+2025-06-05 04:14:17,154 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-05 04:14:17,154 - selecter - INFO - Отобрано 5 особей турнирной селекцией
+2025-06-05 04:14:17,155 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:14:17,155 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:14:17,155 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:14:17,155 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:14:17,156 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:14:17,156 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,156 - mutator - INFO - ADD_LAYER: Добавлен GRU(32) в позицию 1
+2025-06-05 04:14:17,156 - mutator - INFO -   Исходная: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,156 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 32, 'return_sequences': False}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,157 - mutator - INFO - MUTATE_LIST: Применены мутации: add_layer
+2025-06-05 04:14:17,157 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 32, 'return_sequences': False}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,157 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:14:17,157 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:14:17,158 - mutator - INFO - MUTATE_LIST: Применены мутации: hyperparams
+2025-06-05 04:14:17,158 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.31762921165521524}]
+2025-06-05 04:14:17,158 - nas_genetic_alg - INFO - 
+=== Generation 3 ===
+2025-06-05 04:14:17,158 - evaluator - INFO - Запускаем параллельную оценку: 6 архитектур, 4 процессов
+2025-06-05 04:17:25,657 - evaluator - INFO - Оценка завершена. Фитнесы: [1.1497822276085425, 1.1503161359025706, 1.2455971552354677, 1.1579742786892107, 1.1274525650180667, 1.1274947095282952]
+2025-06-05 04:17:25,658 - nas_genetic_alg - INFO - Ind 0: fit=1.1498, val_loss=0.0027, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,659 - nas_genetic_alg - INFO - Ind 1: fit=1.1503, val_loss=0.0022, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,659 - nas_genetic_alg - INFO - Ind 2: fit=1.2456, val_loss=0.0022, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'GRU', 'units': 32, 'return_sequences': False}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,659 - nas_genetic_alg - INFO - Ind 3: fit=1.1580, val_loss=0.0037, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': True, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.31762921165521524}]
+2025-06-05 04:17:25,660 - nas_genetic_alg - INFO - Ind 4: fit=1.1275, val_loss=0.0023, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,660 - nas_genetic_alg - INFO - Ind 5: fit=1.1275, val_loss=0.0021, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,660 - nas_genetic_alg - INFO - Best fitness: 1.1275
+2025-06-05 04:17:25,660 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-05 04:17:25,660 - selecter - INFO - Отобрано 5 особей турнирной селекцией
+2025-06-05 04:17:25,661 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:17:25,661 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:17:25,662 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:17:25,662 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:17:25,662 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:17:25,662 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,663 - mutator - INFO - ADD_LAYER: Добавлен Dense(128) в позицию 0
+2025-06-05 04:17:25,663 - mutator - INFO -   Исходная: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,663 - mutator - INFO -   Результат: [{'layer': 'Dense', 'units': 128, 'activation': 'relu'}, {'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,663 - mutator - INFO - MUTATE_LIST: Применены мутации: add_layer, hyperparams
+2025-06-05 04:17:25,664 - mutator - INFO -   Результат: [{'layer': 'Dense', 'units': 128, 'activation': 'relu'}, {'layer': 'GRU', 'units': 40, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.06672621051397183, 'recurrent_dropout': 0.09184467203568121}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:25,664 - nas_genetic_alg - INFO - 
+=== Generation 4 ===
+2025-06-05 04:17:25,664 - evaluator - INFO - Запускаем параллельную оценку: 6 архитектур, 4 процессов
+2025-06-05 04:20:30,407 - evaluator - INFO - Оценка завершена. Фитнесы: [1.1459613730028846, 1.144943714414726, 1.1453421916558095, 1.1451302130813583, 1.2909213754131188, 1.1253788286662254]
+2025-06-05 04:20:30,408 - nas_genetic_alg - INFO - Ind 0: fit=1.1460, val_loss=0.0033, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,408 - nas_genetic_alg - INFO - Ind 1: fit=1.1449, val_loss=0.0026, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,408 - nas_genetic_alg - INFO - Ind 2: fit=1.1453, val_loss=0.0027, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,408 - nas_genetic_alg - INFO - Ind 3: fit=1.1451, val_loss=0.0025, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,409 - nas_genetic_alg - INFO - Ind 4: fit=1.2909, val_loss=0.0007, arch=[{'layer': 'Dense', 'units': 128, 'activation': 'relu'}, {'layer': 'GRU', 'units': 40, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.06672621051397183, 'recurrent_dropout': 0.09184467203568121}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,409 - nas_genetic_alg - INFO - Ind 5: fit=1.1254, val_loss=0.0023, arch=[{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,409 - nas_genetic_alg - INFO - Best fitness: 1.1254
+2025-06-05 04:20:30,409 - selecter - INFO - Турнирная селекция с размером турнира 3
+2025-06-05 04:20:30,409 - selecter - INFO - Отобрано 5 особей турнирной селекцией
+2025-06-05 04:20:30,410 - crossover - INFO - Запуск скрещивания методом single_point
+2025-06-05 04:20:30,410 - crossover - INFO - Скрещивание завершено успешно
+2025-06-05 04:20:30,410 - mutator - INFO - MUTATE_LIST: Начало мутации
+2025-06-05 04:20:30,410 - mutator - INFO -   Исходная архитектура: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,411 - mutator - INFO - ADD_LAYER: Добавлен Conv1D(32) в позицию 1
+2025-06-05 04:20:30,411 - mutator - INFO -   Исходная: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,411 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'activation': 'relu'}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:30,411 - mutator - INFO - MUTATE_LIST: Применены мутации: add_layer, hyperparams
+2025-06-05 04:20:30,412 - mutator - INFO -   Результат: [{'layer': 'GRU', 'units': 48, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'activation': 'elu'}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': 'L2', 'dropout': 0.0, 'coef_regularizer': 0.013434234935149064}]
+2025-06-05 04:20:30,412 - evaluator - INFO - Запускаем параллельную оценку: 6 архитектур, 4 процессов
+2025-06-05 04:23:48,485 - evaluator - INFO - Оценка завершена. Фитнесы: [1.1512644058910686, 1.150808012219959, 1.1502326987488185, 1.1500336712784274, 1.2912488417752175, 1.1296413248907085]
+2025-06-05 04:23:48,486 - nas_genetic_alg - INFO - 
+GA done. Best fitness: 1.1296
+2025-06-05 04:23:48,487 - __main__ - INFO - Best architecture found by GA: [
+  {
+    "layer": "GRU",
+    "units": 32,
+    "activation": "tanh",
+    "return_sequences": false,
+    "dropout": 0.1,
+    "recurrent_dropout": 0.1
+  },
+  {
+    "layer": "Dense",
+    "units": 1,
+    "activation": "linear",
+    "kernel_regularizer": null,
+    "dropout": 0.0
+  }
+]
+2025-06-05 04:23:48,487 - __main__ - INFO - Building best model with found architecture
+2025-06-05 04:23:48,487 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:23:48,489 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:23:49,566 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:23:49,566 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:23:49,567 - __main__ - INFO - Compiling model
+2025-06-05 04:23:49,588 - __main__ - INFO - Training final model
+2025-06-05 04:24:40,169 - absl - WARNING - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2025-06-05 04:24:40,307 - __main__ - INFO - Best model saved to /mnt/c/study/paper/diploma/logs/20250605/models/best_model.h5
+2025-06-05 04:24:41,749 - __main__ - INFO - Test metrics:
+2025-06-05 04:24:41,751 - __main__ - INFO - loss: 0.0037
+2025-06-05 04:24:41,752 - __main__ - INFO - mae: 0.0477
+2025-06-05 04:24:41,753 - __main__ - INFO - mse: 0.0037
+2025-06-05 04:24:43,373 - __main__ - INFO - y_test: min=-0.7407, max=1.7688, mean=0.7363, std=0.4194, nan=0, inf=0
+2025-06-05 04:24:43,374 - __main__ - INFO - y_pred_test: min=-0.4236, max=1.6211, mean=0.7441, std=0.4202, nan=0, inf=0
+2025-06-05 04:24:43,376 - __main__ - INFO - 
+Detailed metrics:
+2025-06-05 04:24:43,377 - __main__ - INFO - mse: 0.0037
+2025-06-05 04:24:43,377 - __main__ - INFO - rmse: 0.0604
+2025-06-05 04:24:43,377 - __main__ - INFO - mae: 0.0477
+2025-06-05 04:24:43,377 - __main__ - INFO - r2: 0.9792
+2025-06-05 04:24:43,378 - __main__ - INFO - explained_variance: 0.9796
+2025-06-05 04:24:43,378 - __main__ - INFO - mape: 0.2899
+2025-06-05 04:24:43,410 - __main__ - INFO - Final configuration saved to /mnt/c/study/paper/diploma/logs/20250605/final_config.json
+2025-06-05 04:24:43,418 - __main__ - INFO - 
+Neural Architecture Search completed successfully!
+2025-06-05 04:24:43,419 - __main__ - INFO - All results saved in: /mnt/c/study/paper/diploma/logs/20250605
+2025-06-05 04:24:43,419 - __main__ - INFO - Summary of best model:
+, params 12,513
+2025-06-05 04:14:25,961 - builder - INFO - Модель успешно построена. Параметры: 12,513
+2025-06-05 04:16:13,243 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=0.0027, model_size=6177, train_time=107.31s
+2025-06-05 04:16:13,859 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:16:13,860 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:16:13,862 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:16:13,982 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:16:13,983 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:16:15,283 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=0.0022, model_size=6177, train_time=109.41s
+2025-06-05 04:16:15,879 - evaluator - INFO - [Worker 5] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:16:15,879 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:16:15,881 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:16:16,001 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:16:16,002 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:16:20,687 - evaluator - INFO - [Worker 3] Оценка завершена: val_loss=0.0037, model_size=6417, train_time=114.78s
+2025-06-05 04:16:26,334 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=0.0022, model_size=12513, train_time=120.35s
+2025-06-05 04:17:22,771 - evaluator - INFO - [Worker 4] Оценка завершена: val_loss=0.0023, model_size=6177, train_time=68.76s
+2025-06-05 04:17:25,174 - evaluator - INFO - [Worker 5] Оценка завершена: val_loss=0.0021, model_size=6177, train_time=69.15s
+2025-06-05 04:17:31,445 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:31,445 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:31,446 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:17:31,446 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:17:31,447 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:17:31,447 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:17:31,468 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:31,468 - evaluator - INFO - [Worker 3] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:17:31,469 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:17:31,469 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:17:31,474 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:17:31,474 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:17:33,246 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:17:33,246 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:17:33,303 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:17:33,304 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:17:33,304 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:17:33,305 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:17:33,318 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:17:33,318 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:19:10,698 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=0.0026, model_size=6177, train_time=97.35s
+2025-06-05 04:19:11,238 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'Dense', 'units': 128, 'activation': 'relu'}, {'layer': 'GRU', 'units': 40, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.06672621051397183, 'recurrent_dropout': 0.09184467203568121}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:19:11,239 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:19:11,241 - builder - INFO - Построение последовательной архитектуры из 3 слоёв
+2025-06-05 04:19:11,293 - evaluator - INFO - [Worker 3] Оценка завершена: val_loss=0.0025, model_size=6177, train_time=97.97s
+2025-06-05 04:19:11,330 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=0.0033, model_size=6177, train_time=98.01s
+2025-06-05 04:19:11,375 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=0.0027, model_size=6177, train_time=98.11s
+2025-06-05 04:19:11,409 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-05 04:19:11,437 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 24,705
+2025-06-05 04:19:11,438 - builder - INFO - Модель успешно построена. Параметры: 24,705
+2025-06-05 04:19:11,873 - evaluator - INFO - [Worker 5] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:19:11,873 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:19:11,874 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:19:11,958 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:19:11,958 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:20:17,941 - evaluator - INFO - [Worker 5] Оценка завершена: val_loss=0.0023, model_size=6177, train_time=65.97s
+2025-06-05 04:20:29,847 - evaluator - INFO - [Worker 4] Оценка завершена: val_loss=0.0007, model_size=24705, train_time=78.38s
+2025-06-05 04:20:36,064 - evaluator - INFO - [Worker 0] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:36,064 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:20:36,065 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:20:36,104 - evaluator - INFO - [Worker 1] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:36,105 - evaluator - INFO - [Worker 2] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:36,105 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:20:36,105 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:20:36,106 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:20:36,106 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:20:36,211 - evaluator - INFO - [Worker 3] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:20:36,211 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:20:36,213 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:20:37,761 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:20:37,761 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:20:37,832 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:20:37,833 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:20:37,840 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:20:37,841 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:20:37,915 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:20:37,919 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:22:26,783 - evaluator - INFO - [Worker 3] Оценка завершена: val_loss=0.0022, model_size=6177, train_time=108.85s
+2025-06-05 04:22:27,380 - evaluator - INFO - [Worker 2] Оценка завершена: val_loss=0.0021, model_size=6177, train_time=109.53s
+2025-06-05 04:22:27,481 - evaluator - INFO - [Worker 4] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 48, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Conv1D', 'filters': 32, 'kernel_size': 3, 'activation': 'elu'}, {'layer': 'Dense', 'units': 8, 'activation': 'linear', 'kernel_regularizer': 'L2', 'dropout': 0.0, 'coef_regularizer': 0.013434234935149064}]
+2025-06-05 04:22:27,482 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:22:27,483 - builder - INFO - Построение последовательной архитектуры из 3 слоёв
+2025-06-05 04:22:27,626 - builder - INFO - Добавляем финальный Dense(1)
+2025-06-05 04:22:27,665 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 23,953
+2025-06-05 04:22:27,668 - builder - INFO - Модель успешно построена. Параметры: 23,953
+2025-06-05 04:22:28,005 - evaluator - INFO - [Worker 5] Начинаем билд и обучение для архитектуры: [{'layer': 'GRU', 'units': 32, 'activation': 'tanh', 'return_sequences': False, 'dropout': 0.1, 'recurrent_dropout': 0.1}, {'layer': 'Dense', 'units': 1, 'activation': 'linear', 'kernel_regularizer': None, 'dropout': 0.0}]
+2025-06-05 04:22:28,006 - builder - INFO - Начинаем построение модели. Input shape: (30,)
+2025-06-05 04:22:28,008 - builder - INFO - Построение последовательной архитектуры из 2 слоёв
+2025-06-05 04:22:28,114 - builder - INFO - Модель финализирована: вход (None, 30), выход (None, 1), params 6,177
+2025-06-05 04:22:28,116 - builder - INFO - Модель успешно построена. Параметры: 6,177
+2025-06-05 04:22:28,193 - evaluator - INFO - [Worker 0] Оценка завершена: val_loss=0.0027, model_size=6177, train_time=110.41s
+2025-06-05 04:22:28,591 - evaluator - INFO - [Worker 1] Оценка завершена: val_loss=0.0021, model_size=6177, train_time=110.73s
+2025-06-05 04:23:39,780 - evaluator - INFO - [Worker 5] Оценка завершена: val_loss=0.0025, model_size=6177, train_time=71.62s
+2025-06-05 04:23:47,952 - evaluator - INFO - [Worker 4] Оценка завершена: val_loss=0.0030, model_size=23953, train_time=80.25s

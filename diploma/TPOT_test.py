@@ -5,6 +5,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import os
+import tensorflow as tf
+
+# Try to use GPU if available
+physical_devices = tf.config.list_physical_devices('GPU')
+if physical_devices:
+    try:
+        for device in physical_devices:
+            tf.config.experimental.set_memory_growth(device, True)
+        print(f"Using GPU: {[d.name for d in physical_devices]}")
+    except Exception as e:
+        print(f"Could not set GPU memory growth: {e}")
+else:
+    print("No GPU found, running on CPU.")
 
 def run_tpot_on_dataset(dataset_path, dataset_name):
     print(f"\n===== TPOT on {dataset_name} =====")
@@ -14,7 +27,7 @@ def run_tpot_on_dataset(dataset_path, dataset_name):
     y = df.iloc[:, -1]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    tpot = TPOTRegressor(generations=20, population_size=50, verbosity=2, random_state=42, n_jobs=-1)
+    tpot = TPOTRegressor(generations=5, population_size=10, verbosity=2, random_state=42, n_jobs=-1)
     tpot.fit(X_train, y_train)
 
     y_pred = tpot.predict(X_test)
@@ -52,9 +65,10 @@ def run_tpot_on_dataset(dataset_path, dataset_name):
 
 if __name__ == "__main__":
     datasets = [
-        ("datasets/forest_dataset_lags.csv", "fire"),
-        ("datasets/daily_sunspots_lags.csv", "sunspots"),
         ("datasets/mackey_glass_dataset.csv", "mackey_glass"),
+        ("datasets/forest_dataset_lags.csv", "fire"),
+        ("datasets/daily_sunspots_lags.csv", "sunspots")
+        
     ]
     for path, name in datasets:
         run_tpot_on_dataset(path, name)

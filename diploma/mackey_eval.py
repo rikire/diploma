@@ -18,7 +18,7 @@ train_params = config['training_params']
 compile_params = config['compile_params']
 
 # --- Данные ---
-DATA_PATH = 'datasets/daily_sunspots_lags.csv'
+DATA_PATH = 'datasets/mackey_glass_dataset.csv'
 df = pd.read_csv(DATA_PATH)
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
@@ -26,20 +26,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
 
 # --- Архитектура ---
-arch = {
-    "parallel": {
-        "branch_1_hybrid": [
-            {"layer": "Conv1D", "filters": 64, "kernel_size": 3, "strides": 2, "padding": "same", "activation": "elu", "batch_norm": True, "dropout": 0.2, "pooling": None},
-            {"layer": "Dense", "units": 64, "activation": "elu", "kernel_regularizer": "L1L2", "coef_regularizer": 0.001, "dropout": 0.0},
-            {"layer": "Dense", "units": 1, "activation": "linear", "kernel_regularizer": "L1L2", "coef_regularizer": 0.0001, "dropout": 0.0},
-            {"layer": "RNN", "units": 128, "activation": "tanh", "return_sequences": False, "dropout": 0.0, "recurrent_dropout": 0.0}
-        ],
-        "branch_2_rnn": [
-            {"layer": "LSTM", "units": 64, "activation": "tanh", "return_sequences": True, "dropout": 0.1, "recurrent_dropout": 0.1, "recurrent_activation": "sigmoid", "use_bias": True},
-            {"layer": "RNN", "units": 32, "activation": "tanh", "return_sequences": False, "dropout": 0.2, "recurrent_dropout": 0.0}
-        ]
-    }
-}
+arch = [
+    {"layer": "GRU", "units": 32, "activation": "tanh", "return_sequences": False, "dropout": 0.1, "recurrent_dropout": 0.1},
+    {"layer": "Dense", "units": 1, "activation": "linear", "kernel_regularizer": None, "dropout": 0.0}
+]
 
 # --- Модель ---
 input_shape = (X_train.shape[1], 1)
@@ -89,7 +79,7 @@ if not np.any(y_test == 0):
     print('MAPE:', mean_absolute_percentage_error(y_test, pred))
 
 # --- Графики ---
-PLOTS_DIR = 'logs/20250604/plots_sunspots'
+PLOTS_DIR = 'logs/20250604/plots_mackey_glass'
 os.makedirs(PLOTS_DIR, exist_ok=True)
 
 plt.figure(figsize=(10,4))
@@ -97,7 +87,7 @@ plt.plot(history.history['loss'], label='loss')
 plt.plot(history.history['val_loss'], label='val_loss')
 plt.legend()
 plt.title('Training history')
-plt.savefig(os.path.join(PLOTS_DIR, 'training_history_sunspots.png'))
+plt.savefig(os.path.join(PLOTS_DIR, 'training_history_mackey.png'))
 plt.close()
 
 plt.figure(figsize=(8,6))
@@ -106,7 +96,7 @@ plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
 plt.xlabel('Actual')
 plt.ylabel('Predicted')
 plt.title('Prediction vs Actual')
-plt.savefig(os.path.join(PLOTS_DIR, 'prediction_vs_actual_sunspots.png'))
+plt.savefig(os.path.join(PLOTS_DIR, 'prediction_vs_actual_mackey.png'))
 plt.close()
 
 errors = pred - y_test
@@ -114,5 +104,5 @@ plt.figure(figsize=(8,6))
 sns.histplot(errors, kde=True)
 plt.title('Error distribution')
 plt.xlabel('Prediction error')
-plt.savefig(os.path.join(PLOTS_DIR, 'error_distribution_sunspots.png'))
+plt.savefig(os.path.join(PLOTS_DIR, 'error_distribution_mackey.png'))
 plt.close()
